@@ -1,0 +1,7 @@
+class Test:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        for symbol in "!?';.,":
+            paragraph = paragraph.replace(symbol, ' ')
+        for word, freq in sorted(collections.Counter(paragraph.lower().split()).items(), key = lambda w : -w[1]):
+            if word not in banned:
+                return word
